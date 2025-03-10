@@ -1,0 +1,15 @@
+<h1>Entries</h1>
+<%= form_with url: entries_path, method: :get, local: true do %>
+  <%= label_tag :search, "Search:" %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<ul>
+  <% @entries.each do |entry| %>
+    <li>
+      <%= link_to entry.title, entry_path(entry) %>
+      - <%= entry.author %>
+    </li>
+  <% end %>
+</ul>
