@@ -6,10 +6,13 @@
 <% end %>
 
 <ul>
-  <% @entries.each do |entry| %>
-    <li>
-      <%= link_to entry.title, entry_path(entry) %>
-      - <%= entry.author %>
-    </li>
-  <% end %>
+<% @entries.each do |entry| %>
+  <div>
+    <h2><%= entry.title %></h2>
+    <p><%= entry.author %></p>
+    <!-- Add other entry details here -->
+  </div>
+<% end %>
+
+<%= paginate @entries %>
 </ul>
