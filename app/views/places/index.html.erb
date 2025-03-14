@@ -1,0 +1,15 @@
+<h1>Places</h1>
+<%= form_with url: places_path, method: :get, local: true do %>
+  <%= label_tag :search, "Search:" %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<ul>
+  <% @places.each do |place| %>
+    <li>
+      <%= link_to place.name, place_path(place) %>
+      - <%= place.latitude %>, <%= place.longitude %>
+    </li>
+  <% end %>
+</ul>

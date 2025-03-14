@@ -1,0 +1,31 @@
+<h1>Entries</h1>
+<%= form_with url: entries_path, method: :get, local: true do %>
+  <%= label_tag :search, "Search:" %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Place</th>
+      <th>Title</th>
+      <th>Author</th>
+      <!-- Add other headers here -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= link_to entry.date1, entry_path(entry) %></td>
+        <td><%= entry.placeName %></td>
+        <td><%= entry.title %></td>
+        <td><%= entry.author %></td>
+        <!-- Add other entry details here -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @entries %>
