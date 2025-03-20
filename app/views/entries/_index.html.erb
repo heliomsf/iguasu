@@ -1,4 +1,5 @@
 <h1>Entries</h1>
+<%= link_to 'New Entry', new_entry_path %>
 <%= form_with url: entries_path, method: :get, local: true do %>
   <%= label_tag :search, "Search:" %>
   <%= text_field_tag :search, params[:search] %>
@@ -12,6 +13,7 @@
       <th>Place</th>
       <th>Title</th>
       <th>Author</th>
+      <th>Actions</th>
       <!-- Add other headers here -->
     </tr>
   </thead>
@@ -22,6 +24,11 @@
         <td><%= entry.placeName %></td>
         <td><%= entry.title %></td>
         <td><%= entry.author %></td>
+        <td>
+          <%= link_to 'Show', entry %>
+          <%= link_to 'Edit', edit_entry_path(entry) %>
+          <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
         <!-- Add other entry details here -->
       </tr>
     <% end %>
