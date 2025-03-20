@@ -1,0 +1,77 @@
+<%# filepath: /Users/heliomiguel/code/parana/iguaçu/app/views/entries/_form.html.erb %>
+<%= form_with(model: entry, local: true) do |form| %>
+  <% if entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+      <ul>
+        <% entry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :pdfUrl %>
+    <%= form.text_field :pdfUrl %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ref %>
+    <%= form.text_field :ref %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :recipient %>
+    <%= form.text_field :recipient %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :placeId %>
+    <%= form.text_field :placeId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :placeName %>
+    <%= form.text_field :placeName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date1 %>
+    <%= form.date_select :date1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date2 %>
+    <%= form.date_select :date2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date3 %>
+    <%= form.date_select :date3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :document %>
+    <%= form.text_field :document %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
